@@ -1,0 +1,22 @@
+<h1>Dashboard</h1>
+
+<p>Hello <%= current_user.email %></p>
+
+<%= link_to "Add Health Record", new_health_record_path %>
+
+<hr>
+
+<% if @health_records.any? %>
+  <% @health_records.each do |r| %>
+    <p>
+      <strong><%= r.recorded_on %></strong>
+      | Weight: <%= r.weight %>
+      | HR: <%= r.heart_rate %>
+    </p>
+  <% end %>
+<% else %>
+  <p>No records yet</p>
+<% end %>
+
+<%= button_to "Logout", destroy_user_session_path, method: :delete %>
+

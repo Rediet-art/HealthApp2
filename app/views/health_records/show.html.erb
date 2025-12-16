@@ -1,0 +1,17 @@
+<h1>Health Record</h1>
+
+<p><strong>Date:</strong> <%= @health_record.recorded_on %></p>
+<p><strong>Weight:</strong> <%= @health_record.weight %></p>
+<p><strong>Blood Pressure:</strong>
+  <%= @health_record.systolic || "?" %>/<%= @health_record.diastolic || "?" %>
+</p>
+
+<p><strong>Heart Rate:</strong> <%= @health_record.heart_rate %></p>
+<p><strong>Notes:</strong> <%= @health_record.notes %></p>
+
+<%= link_to "Edit", edit_health_record_path(@health_record) %> |
+<%= link_to "Back", root_path %>
+<%= button_to "🗑 Delete Record",
+    health_record_path(@health_record),
+    method: :delete,
+    data: { confirm: "Are you sure?" } %>

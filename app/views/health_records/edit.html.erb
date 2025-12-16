@@ -1,0 +1,37 @@
+<h1>Edit Health Record</h1>
+
+<%= form_with model: @health_record, local: true do |f| %>
+  <div>
+    <%= f.label :recorded_on %>
+    <%= f.date_field :recorded_on %>
+  </div>
+
+  <div>
+    <%= f.label :weight %>
+    <%= f.number_field :weight, step: 0.1 %>
+  </div>
+
+  <div>
+    <%= f.label :systolic %>
+    <%= f.number_field :systolic %>
+  </div>
+
+  <div>
+    <%= f.label :diastolic %>
+    <%= f.number_field :diastolic %>
+  </div>
+
+  <div>
+    <%= f.label :heart_rate %>
+    <%= f.number_field :heart_rate %>
+  </div>
+
+  <div>
+    <%= f.label :notes %>
+    <%= f.text_area :notes %>
+  </div>
+
+  <%= f.submit "Update Record" %>
+<% end %>
+
+<%= link_to "Back", root_path %>

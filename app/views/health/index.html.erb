@@ -1,0 +1,55 @@
+<h1>Welcome to Your Health Dashboard</h1>
+
+<p>Hello, <strong><%= current_user.email %></strong></p>
+
+<hr>
+
+<h2>📊 Summary</h2>
+
+<% if @summary %>
+  <ul>
+    <li>Total Records: <%= @summary[:total_records] %></li>
+    <li>Latest Weight: <%= @summary[:latest_weight] || "N/A" %></li>
+    <li>Average Heart Rate: <%= @summary[:avg_heart_rate] || "N/A" %></li>
+    <li>Latest BP: <%= @summary[:last_bp] %></li>
+    <li>Last Date: <%= @summary[:last_date] %></li>
+  </ul>
+<% else %>
+  <p>No health data yet.</p>
+<% end %>
+
+<hr>
+
+<%= link_to "➕ Add Health Record", new_health_record_path %>
+<%= link_to "📋 View All Records", health_records_path %>
+
+<hr>
+
+<% if @health_records.any? %>
+  <h2>Your Health Records</h2>
+  <ul>
+    <% @health_records.each do |record| %>
+      <li>
+        <strong><%= record.recorded_on || record.created_at.to_date %></strong>
+        — Weight: <%= record.weight || "N/A" %>
+        — HR: <%= record.heart_rate || "N/A" %>
+      </li>
+      <li>
+    <strong><%= record.recorded_on %></strong><br>
+    Weight: <%= record.weight || "N/A" %><br>
+    BP: <%= record.systolic %>/<%= record.diastolic %>
+    Heart Rate: <%= record.heart_rate || "N/A" %>
+
+    <div>
+      <%= link_to "Edit", edit_health_record_path(record) %> |
+      <%= link_to "Delete",
+            health_record_path(record),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+    </div>
+  </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No health records found yet.</p>
+<% end %>
