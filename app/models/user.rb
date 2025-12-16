@@ -4,4 +4,3 @@ class User < ApplicationRecord
 
   has_many :health_records, dependent: :destroy
 end
-
