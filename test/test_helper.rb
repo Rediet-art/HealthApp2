@@ -3,10 +3,9 @@ require_relative "../config/environment"
 require "rails/test_help"
 
 class ActiveSupport::TestCase
-  #fixtures :all
+  # fixtures :all
 end
 
 class ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 end
-
