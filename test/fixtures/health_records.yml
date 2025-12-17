@@ -3,15 +3,15 @@
 one:
   user: one
   recorded_on: 2025-12-16
-  weight: 9.99
-  blood_pressure: MyString
+  weight: 70.5 
+  blood_pressure: "120/80"
   heart_rate: 1
-  notes: MyText
+  notes: "Another health record"
 
 two:
   user: two
   recorded_on: 2025-12-16
-  weight: 9.99
-  blood_pressure: MyString
+  weight: 65.0
+  blood_pressure: "110/70"
   heart_rate: 1
-  notes: MyText
+  notes: "Another health record"
